@@ -10,27 +10,29 @@ function Navbar() {
 
     return (
         <>
-            <div className="bg-zinc-900 rounded-xl border border-zinc-700 lg:flex hidden flex-row gap-10 items-center justify-center px-8 py-2.5">
-                <p className="text-white opacity-90">Home</p>
-                <p className="text-white opacity-90">My projects</p>
-                <p className="text-white opacity-90">My resume</p>
-            </div>
+            <div className="backdrop-blur-[30px] bg-[rgba(29,29,37,0.6)] border border-zinc-800 rounded-xl flex flex-row gap-24 items-center sm:justify-center justify-between px-7 py-4 sm:w-auto w-full">
+                <p className="text-white font-medium">Kevin Torres</p>
 
-            <div onClick={() => setIsMenu(!isMenu)} className={`bg-zinc-900 rounded-lg border border-zinc-700 lg:hidden flex cursor-pointer p-2.5 ${isMenu === true ? 'hidden' : 'flex'}`}>
-                <Menu width={21} height={21} color="white" />
+                <div className="flex-row gap-6 sm:flex hidden">
+                    <p className="text-white font-medium opacity-60 text-[15px]">Home</p>
+                    <p className="text-white font-medium opacity-60 text-[15px]">Projects</p>
+                    <p className="text-white font-medium opacity-60 text-[15px]">Resume</p>
+                </div>
+
+                <Menu onClick={() => setIsMenu(!isMenu)} width={21} height={21} color="white" className="sm:hidden flex" />
             </div>
 
             {isMenu && (
                 <div className="w-screen h-screen top-0 bottom-0 left-0 right-0 fixed">
-                    <div className="bg-zinc-900 rounded-lg border border-zinc-700 flex flex-col py-6">
-                        <X width={21} height={21} color="white" onClick={() => setIsMenu(!isMenu)} />
-
-                        <p className="text-white opacity-90 border-b border-b-zinc-600 py-3 px-4">Home</p>
-                        <p className="text-white opacity-90 border-b border-b-zinc-600 py-3 px-4">My projects</p>
-                        <p className="text-white opacity-90 px-4 pt-3">My resume</p>
+                    <div className="backdrop-blur-[40px] bg-[rgba(30,30,39,0.6)] border-b border-b-zinc-700 flex flex-col py-6 px-6 gap-6">
+                        <X width={21} height={21} color="white" onClick={() => setIsMenu(!isMenu)} className="self-end"/>
+                        <p className="text-white opacity-90">Home</p>
+                        <p className="text-white opacity-90">My projects</p>
+                        <p className="text-white opacity-90">My resume</p>
                     </div>
                 </div>
             )}
+
         </>
     )
 }
